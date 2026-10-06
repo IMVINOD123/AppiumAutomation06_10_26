@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Appium POM Suite]">
+  <test thread-count="5" name="API Demos - Drag and Drop Verification(failed)">
+    <classes>
+      <class name="tests.DragAndDropWithTouchActionTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="testDragAndDropUisngTouchActions"/>
+          <include name="setUp"/>
+          <include name="startServer"/>
+          <include name="stopServer"/>
+        </methods>
+      </class> <!-- tests.DragAndDropWithTouchActionTest -->
+    </classes>
+  </test> <!-- API Demos - Drag and Drop Verification(failed) -->
+</suite> <!-- Failed suite [Appium POM Suite] -->

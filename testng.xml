@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Appium POM Suite">
+
+	<test name="API Demos - ViewPage Verification">
+		<classes>
+			<class name="tests.VeiwTest" />
+		</classes>
+	</test>
+
+	<test name="API Demos - Drag and Drop Verification">
+		<classes>
+			<class name="tests.DragAndDropWithTouchActionTest" />
+		</classes>
+	</test>
+
+</suite>

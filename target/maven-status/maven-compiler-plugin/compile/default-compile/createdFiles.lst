@@ -1,0 +1,8 @@
+Utils\AppiumEventListener.class
+Utils\JsonLocatorReader.class
+Utils\ExtentManager.class
+Utils\AppiumServerManager.class
+Utils\DriverManager.class
+Pages\ViewsPage.class
+Utils\ScreenshotUtils.class
+Pages\DragAndDropByTouchActionPage.class

@@ -1,0 +1,15 @@
+{
+	"serverIp": "127.0.0.1",
+	"port": "4723",
+	"deviceName_Local_Emulator": "AndroidEmulator_21_09",
+	"platformVersion": "11.0",
+	"appPackage": "io.appium.android.apis",
+	"appActivity": ".ApiDemos",
+	"automationName": "UiAutomator2",
+	"device_namein_docker_Emulator": "emulator-5554",
+	"apkPath_ApiDemos": "src/main/resources/APKFiles/ApiDemos-release.apk",
+	"DragAndDropPageText":"DragAndDropPage",
+	"scrollableText":"scrollableText",
+	"viewsLabel":"viewsLabel",
+	"dragAndDropLabel":"dragAndDropLabel"
+}

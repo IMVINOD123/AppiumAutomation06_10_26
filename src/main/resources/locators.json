@@ -1,0 +1,62 @@
+{
+  "DragAndDropPage": {
+    "viewsLabel": {
+      "type": "xpath",
+      "value": "//android.widget.TextView[@content-desc=\"Views\"]"
+    },
+    "dragAndDropLabel": {
+      "type": "xpath",
+      "value": "//android.widget.TextView[@content-desc=\"Drag and Drop\"]"
+    },
+    "dot1": {
+      "type": "id",
+      "value": "io.appium.android.apis:id/drag_dot_1"
+    },
+    "dot2": {
+      "type": "id",
+      "value": "io.appium.android.apis:id/drag_dot_2"
+    },
+    "droppedText": {
+      "type": "id",
+      "value": "io.appium.android.apis:id/drag_result_text"
+    },
+    "scrollableText": {
+      "type": "androidUiAutomator",
+      "value": "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\"%s\"))"
+    }
+  },
+  "ViewsPage": {
+    "monitoredSwitch": {
+      "type": "accessibilityId",
+      "value": "Monitored switch"
+    },
+    "toastMessage": {
+      "type": "xpath",
+      "value": "//android.widget.Toast[contains(@text, 'Monitored switch')]"
+    },
+    "viewsLabel": {
+      "type": "xpath",
+      "value": "//android.widget.TextView[@content-desc=\"Views\"]"
+    },
+    "switchesLabel": {
+      "type": "xpath",
+      "value": "//android.widget.TextView[@content-desc=\"Switches\"]"
+    },
+    "standardSwitch": {
+      "type": "xpath",
+      "value": "//android.widget.Switch[@content-desc=\"Standard switch\"]"
+    },
+    "defaultOnSwitch": {
+      "type": "xpath",
+      "value": "//android.widget.Switch[@content-desc=\"Default is on\"]"
+    },
+    "monitoredSwitchLocator": {
+      "type": "id",
+      "value": "io.appium.android.apis:id/monitored_switch"
+    },
+    "scrollableText": {
+      "type": "androidUiAutomator",
+      "value": "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\"%s\"))"
+    }
+  }
+}

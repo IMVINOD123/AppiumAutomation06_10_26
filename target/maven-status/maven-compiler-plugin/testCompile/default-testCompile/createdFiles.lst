@@ -1,0 +1,9 @@
+tests\VeiwTest.class
+AutomationDemo\Automate_Calculator_In_RealDevice.class
+AutomationDemo\Appium_DesireCapablities.class
+AutomationDemo\Automate_Phone_Dailer.class
+AutomationDemo\AmezonLaunch.class
+BaseTest\BaseTest.class
+AutomationDemo\Scrolling_Switching_AppDemo.class
+AutomationDemo\Listeners\TestListener.class
+tests\DragAndDropWithTouchActionTest.class
