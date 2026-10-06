@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 
 import BaseTest.BaseTest;
+import Comman.CommanLogics;
 import Pages.DragAndDropByTouchActionPage;
 import Utils.ConfigReader;
 import Utils.DriverManager;
@@ -16,8 +17,9 @@ public class DragAndDropWithTouchActionTest extends BaseTest {
 	@Test
 	public void testDragAndDropUisngTouchActions() throws InterruptedException {
 		DragAndDropByTouchActionPage dragAndDrop = new DragAndDropByTouchActionPage(DriverManager.getRawDriver());
+		CommanLogics comman=new CommanLogics(DriverManager.getRawDriver());
 
-		dragAndDrop.scrollToAndView(ConfigReader.getProperty("viewLabel"));
+		comman.scrollToAndView(ConfigReader.getProperty("viewLabel"));
 		ExtentManager.getTest().log(Status.INFO, "Scrolled Till View Locator");
 
 		dragAndDrop.dragAndDropLabel();

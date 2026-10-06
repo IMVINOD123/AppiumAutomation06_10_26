@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Appium POM Suite]">
+  <test thread-count="5" name="API Demos - ViewPage Verification(failed)">
+    <classes>
+      <class name="tests.VeiwTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="testMonitoredSwitchToast"/>
+          <include name="setUp"/>
+          <include name="startServer"/>
+          <include name="stopServer"/>
+        </methods>
+      </class> <!-- tests.VeiwTest -->
+    </classes>
+  </test> <!-- API Demos - ViewPage Verification(failed) -->
   <test thread-count="5" name="API Demos - Drag and Drop Verification(failed)">
     <classes>
       <class name="tests.DragAndDropWithTouchActionTest">

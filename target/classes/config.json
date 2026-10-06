@@ -1,8 +1,8 @@
 {
 	"serverIp": "127.0.0.1",
-	"port": "4723",
+	"port": "4724",
 	"deviceName_Local_Emulator": "AndroidEmulator_21_09",
-	"platformVersion": "11.0",
+	"platformVersion": "14.0",
 	"appPackage": "io.appium.android.apis",
 	"appActivity": ".ApiDemos",
 	"automationName": "UiAutomator2",
@@ -11,5 +11,7 @@
 	"DragAndDropPageText":"DragAndDropPage",
 	"scrollableText":"scrollableText",
 	"viewsLabel":"viewsLabel",
-	"dragAndDropLabel":"dragAndDropLabel"
+	"dragAndDropLabel":"dragAndDropLabel",
+	"viewLabel":"Views",
+	"switchesLabel":"Switches"
 }

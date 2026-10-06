@@ -9,14 +9,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
-
 import BaseTest.BaseTest;
+import Comman.CommanLogics;
 
 public class VeiwTest extends BaseTest {
 
 	@Test
 	public void testMonitoredSwitchToast() throws InterruptedException {
 		ViewsPage viewsPage = new ViewsPage(DriverManager.getRawDriver());
+		CommanLogics comman=new CommanLogics(DriverManager.getRawDriver());
 
 		// Perform page action
 		// viewsPage.toggleMonitoredSwitch();
@@ -32,7 +33,7 @@ public class VeiwTest extends BaseTest {
 		 * "Toast text validation failed!");
 		 */
 		// Scroll and Navigate to Views
-		viewsPage.scrollToAndView(ConfigReader.getProperty("viewLabel"));
+		comman.scrollToAndView(ConfigReader.getProperty("viewLabel"));
 		ExtentManager.getTest().log(Status.INFO, "Scrolled Till View Locator");
 		//System.out.println("***************Scrolled Till View***************");
 

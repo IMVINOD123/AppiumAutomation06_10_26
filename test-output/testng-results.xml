@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-10-05T16:54:32 IST" name="Appium POM Suite" finished-at="2026-10-05T16:55:59 IST" duration-ms="87074">
+  <suite started-at="2026-10-06T14:08:45 IST" name="Appium POM Suite" finished-at="2026-10-06T14:09:34 IST" duration-ms="49362">
     <groups>
     </groups>
-    <test started-at="2026-10-05T16:54:32 IST" name="API Demos - ViewPage Verification" finished-at="2026-10-05T16:55:32 IST" duration-ms="60304">
+    <test started-at="2026-10-06T14:08:45 IST" name="API Demos - ViewPage Verification" finished-at="2026-10-06T14:09:17 IST" duration-ms="32271">
       <class name="tests.VeiwTest">
-        <test-method is-config="true" signature="setUp(java.lang.reflect.Method)[pri:0, instance:tests.VeiwTest@24313fcc]" started-at="2026-10-05T16:54:32 IST" name="setUp" finished-at="2026-10-05T16:54:42 IST" duration-ms="10006" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.reflect.Method)[pri:0, instance:tests.VeiwTest@24313fcc]" started-at="2026-10-06T14:08:45 IST" name="setUp" finished-at="2026-10-06T14:08:52 IST" duration-ms="6736" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,11 +18,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testMonitoredSwitchToast()[pri:0, instance:tests.VeiwTest@24313fcc]" started-at="2026-10-05T16:54:42 IST" name="testMonitoredSwitchToast" finished-at="2026-10-05T16:55:29 IST" duration-ms="46945" status="PASS">
+        <test-method signature="testMonitoredSwitchToast()[pri:0, instance:tests.VeiwTest@24313fcc]" started-at="2026-10-06T14:08:52 IST" name="testMonitoredSwitchToast" finished-at="2026-10-06T14:09:14 IST" duration-ms="22296" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testMonitoredSwitchToast -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.VeiwTest@24313fcc]" started-at="2026-10-05T16:55:29 IST" name="tearDown" finished-at="2026-10-05T16:55:32 IST" duration-ms="3315" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.VeiwTest@24313fcc]" started-at="2026-10-06T14:09:14 IST" name="tearDown" finished-at="2026-10-06T14:09:17 IST" duration-ms="3179" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -35,13 +35,13 @@
         </test-method> <!-- tearDown -->
       </class> <!-- tests.VeiwTest -->
     </test> <!-- API Demos - ViewPage Verification -->
-    <test started-at="2026-10-05T16:55:32 IST" name="API Demos - Drag and Drop Verification" finished-at="2026-10-05T16:55:59 IST" duration-ms="26742">
+    <test started-at="2026-10-06T14:09:17 IST" name="API Demos - Drag and Drop Verification" finished-at="2026-10-06T14:09:34 IST" duration-ms="17029">
       <class name="tests.DragAndDropWithTouchActionTest">
-        <test-method is-config="true" signature="startServer()[pri:0, instance:tests.DragAndDropWithTouchActionTest@e4487af]" started-at="2026-10-05T16:54:32 IST" name="startServer" finished-at="2026-10-05T16:54:32 IST" duration-ms="34" status="PASS">
+        <test-method is-config="true" signature="startServer()[pri:0, instance:tests.DragAndDropWithTouchActionTest@e4487af]" started-at="2026-10-06T14:08:41 IST" name="startServer" finished-at="2026-10-06T14:08:45 IST" duration-ms="3913" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startServer -->
-        <test-method is-config="true" signature="setUp(java.lang.reflect.Method)[pri:0, instance:tests.DragAndDropWithTouchActionTest@e4487af]" started-at="2026-10-05T16:55:32 IST" name="setUp" finished-at="2026-10-05T16:55:37 IST" duration-ms="4904" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.reflect.Method)[pri:0, instance:tests.DragAndDropWithTouchActionTest@e4487af]" started-at="2026-10-06T14:09:17 IST" name="setUp" finished-at="2026-10-06T14:09:24 IST" duration-ms="6697" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -52,11 +52,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testDragAndDropUisngTouchActions()[pri:0, instance:tests.DragAndDropWithTouchActionTest@e4487af]" started-at="2026-10-05T16:55:37 IST" name="testDragAndDropUisngTouchActions" finished-at="2026-10-05T16:55:58 IST" duration-ms="20584" status="PASS">
+        <test-method signature="testDragAndDropUisngTouchActions()[pri:0, instance:tests.DragAndDropWithTouchActionTest@e4487af]" started-at="2026-10-06T14:09:24 IST" name="testDragAndDropUisngTouchActions" finished-at="2026-10-06T14:09:33 IST" duration-ms="8679" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testDragAndDropUisngTouchActions -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.DragAndDropWithTouchActionTest@e4487af]" started-at="2026-10-05T16:55:58 IST" name="tearDown" finished-at="2026-10-05T16:55:59 IST" duration-ms="1251" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.DragAndDropWithTouchActionTest@e4487af]" started-at="2026-10-06T14:09:33 IST" name="tearDown" finished-at="2026-10-06T14:09:34 IST" duration-ms="1648" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -67,7 +67,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="stopServer()[pri:0, instance:tests.DragAndDropWithTouchActionTest@e4487af]" started-at="2026-10-05T16:55:59 IST" name="stopServer" finished-at="2026-10-05T16:55:59 IST" duration-ms="298" status="PASS">
+        <test-method is-config="true" signature="stopServer()[pri:0, instance:tests.DragAndDropWithTouchActionTest@e4487af]" started-at="2026-10-06T14:09:34 IST" name="stopServer" finished-at="2026-10-06T14:09:35 IST" duration-ms="484" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- stopServer -->
