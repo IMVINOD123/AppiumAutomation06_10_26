@@ -13,6 +13,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
+import java.time.Duration;
 
 public class BaseTest {
 
@@ -41,7 +42,7 @@ public class BaseTest {
         // 1. Force creation of an isolated ExtentTest node for THIS specific test method
         ExtentTest currentTestNode = ExtentManager.createTest(method.getName());
 
-        // 2. Initialize Driver with thread-bound ExtentTest instance (Capabilities loaded from config.json or System properties)
+        // 2. Initialize Driver with thread-bound ExtentTest instance (Capabilities loaded from config or System properties)
         DriverManager.initializeDriver(currentTestNode);
 
         // 3. Start Appium screen recording for this specific test run
@@ -51,13 +52,19 @@ public class BaseTest {
         String appPackage = ConfigReader.getProperty("appPackage");
 
         if (driver != null && appPackage != null) {
-            // 1. Terminate running instance from previous test
-            if (driver.isAppInstalled(appPackage)) {
-                driver.terminateApp(appPackage);
+            try {
+                // Terminate any background instance and relaunch fresh home state
+                if (driver.isAppInstalled(appPackage)) {
+                    driver.terminateApp(appPackage);
+                    // Small delay to ensure process terminates completely on slow CI emulators
+                    Thread.sleep(1000); 
+                    driver.activateApp(appPackage);
+                    // Give the home screen activity 2 seconds to stabilize on headless runners
+                    Thread.sleep(2000); 
+                }
+            } catch (Exception e) {
+                System.err.println("Warning during app state reset in @BeforeMethod: " + e.getMessage());
             }
-
-            // 2. Relaunch fresh instance
-            driver.activateApp(appPackage);
         }
     }
 
@@ -98,11 +105,15 @@ public class BaseTest {
                 }
             }
 
-            // STEP C: Optional: Terminate app after test completion (Executed while driver is still active)
+            // STEP C: Terminate app after test completion (Executed while driver is still active)
             AndroidDriver driver = DriverManager.getRawDriver();
             String appPackage = ConfigReader.getProperty("appPackage");
             if (driver != null && appPackage != null) {
-                driver.terminateApp(appPackage);
+                try {
+                    driver.terminateApp(appPackage);
+                } catch (Exception e) {
+                    System.err.println("Warning terminating app during tearDown: " + e.getMessage());
+                }
             }
 
         } catch (Exception e) {

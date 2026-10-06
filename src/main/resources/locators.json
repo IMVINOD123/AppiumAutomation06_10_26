@@ -57,6 +57,10 @@
     "scrollableText": {
       "type": "androidUiAutomator",
       "value": "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\"%s\"))"
-    }
+    },
+	"textLabelByText": {
+	  "type": "xpath",
+	  "value": "//android.widget.TextView[@text='%s']"
+	}
   }
 }

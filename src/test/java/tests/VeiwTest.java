@@ -1,7 +1,7 @@
 package tests;
 
 import Pages.ViewsPage;
-
+import Utils.ConfigReader;
 import Utils.DriverManager;
 import Utils.ExtentManager;
 
@@ -32,12 +32,12 @@ public class VeiwTest extends BaseTest {
 		 * "Toast text validation failed!");
 		 */
 		// Scroll and Navigate to Views
-		viewsPage.scrollToAndView("Views");
+		viewsPage.scrollToAndView(ConfigReader.getProperty("viewLabel"));
 		ExtentManager.getTest().log(Status.INFO, "Scrolled Till View Locator");
 		//System.out.println("***************Scrolled Till View***************");
 
 		// Scroll and Navigate to Switches
-		viewsPage.scrollToAndClickSwitches("Switches");
+		viewsPage.scrollToAndClickSwitches(ConfigReader.getProperty("switchesLabel"));
 		ExtentManager.getTest().log(Status.INFO, "Scrolled Till Switche Locator");
 		//System.out.println("***************Scrolled Till switch***************");
 

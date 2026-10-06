@@ -13,3 +13,7 @@ Thumbs.db
 # 3. Environment / Local Secrets (If applicable)
 *.env
 local.properties
+
+
+# 4. Demo Program / icable)
+AutomationDemo/
