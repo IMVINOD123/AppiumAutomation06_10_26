@@ -1,4 +1,5 @@
 name: Cross Version- Android Emulator Suite
+
 on:
   push:
     branches: [ "main", "master" ]
@@ -8,25 +9,35 @@ on:
 
 jobs:
   # ====================================================
-  # JOB 1: PARALLEL EMULATOR MATRIX (Android 12, 13, 14)
+  # JOB 1: READ MATRIX CONFIG FROM FILE
+  # ====================================================
+  load-matrix:
+    name: Load Version Matrix Config
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Read Matrix from Config File
+        id: set-matrix
+        run: |
+          # Read json file, convert to compact single line, and output to GitHub outputs
+          MATRIX_JSON=$(jq -c . android-config.json)
+          echo "matrix=${MATRIX_JSON}" >> $GITHUB_OUTPUT
+
+  # ====================================================
+  # JOB 2: PARALLEL EMULATOR MATRIX (DYNAMICALLY LOADED)
   # ====================================================
   emulator-tests:
     name: Emulator - Android ${{ matrix.android-version }} (API ${{ matrix.api-level }})
+    needs: load-matrix
     runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false # Continues running other versions even if one fails
-      matrix:
-        include:
-          - android-version: "12.0"
-            api-level: 31
-            target: google_apis
-          - android-version: "13.0"
-            api-level: 33
-            target: google_apis
-          - android-version: "14.0"
-            api-level: 34
-            target: google_apis
+      matrix: ${{ fromJson(needs.load-matrix.outputs.matrix) }}
 
     steps:
       - name: Checkout Code
@@ -80,22 +91,25 @@ jobs:
             appium-emulator-${{ matrix.api-level }}.log
 
   # ====================================================
-  # JOB 2: REAL DEVICE PLACEHOLDER (Uncomment when needed)
+  # JOB 3: REAL DEVICE PLACEHOLDER (Commented out)
   # ====================================================
   # real-device-tests:
   #   name: Real Device - Android ${{ matrix.android-version }}
+  #   needs: load-matrix
   #   runs-on: ubuntu-latest
   #   strategy:
   #     fail-fast: false
-  #     matrix:
-  #       include:
-  #         - android-version: "12.0"
-  #           device-name: "Samsung Galaxy S22"
-  #         - android-version: "13.0"
-  #           device-name: "Google Pixel 7"
-  #         - android-version: "14.0"
-  #           device-name: "Samsung Galaxy S24"
+  #     matrix: ${{ fromJson(needs.load-matrix.outputs.matrix) }}
   #   steps:
-  #     - uses: actions/checkout@v4
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v4
+  #
+  #     - name: Set up JDK 21
+  #       uses: actions/setup-java@v4
+  #       with:
+  #         distribution: 'temurin'
+  #         java-version: '21'
+  #         cache: maven
+  #
   #     - name: Run Real Device Tests
   #       run: mvn clean test -DexecutionType=realDevice -DdeviceName="${{ matrix.device-name }}" -DplatformVersion="${{ matrix.android-version }}"

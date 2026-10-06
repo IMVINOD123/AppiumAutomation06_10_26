@@ -15,21 +15,27 @@ public class ConfigReader {
             if (inputStream == null) {
                 inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("config.json");
             }
-            if (inputStream == null) {
-                throw new RuntimeException("config.json not found on classpath!");
+            if (inputStream != null) {
+                JSONTokener tokener = new JSONTokener(inputStream);
+                configObject = new JSONObject(tokener);
             }
-
-            JSONTokener tokener = new JSONTokener(inputStream);
-            configObject = new JSONObject(tokener);
         } catch (Exception e) {
-            throw new RuntimeException("Failed to load config.json: " + e.getMessage(), e);
+            System.err.println("Notice: Failed to load config.json: " + e.getMessage());
         }
     }
 
     public static String getProperty(String key) {
-        if (!configObject.has(key)) {
-            throw new IllegalArgumentException("Key [" + key + "] not found in config.json");
+        // 1. Prioritize System Properties passed via Maven command line (-Dkey=value)
+        String sysProp = System.getProperty(key);
+        if (sysProp != null && !sysProp.trim().isEmpty()) {
+            return sysProp;
         }
-        return configObject.getString(key);
+
+        // 2. Fall back to config.json file
+        if (configObject != null && configObject.has(key)) {
+            return configObject.getString(key);
+        }
+
+        return null;
     }
 }

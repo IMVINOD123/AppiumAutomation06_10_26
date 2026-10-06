@@ -26,12 +26,14 @@ public class BaseTest {
 
     @BeforeSuite
     public void startServer() {
-    	// 1. Flush and purge old recorded videos from previous executions
+        // 1. Flush and purge old recorded videos from previous executions
         ScreenshotUtils.cleanVideoDirectory();
 
-        // 2. Start Appium server programmatically
-        AppiumServerManager.startServer();
-        
+        // 2. Start Appium server programmatically (if not already managed by CI)
+        String isCI = System.getenv("GITHUB_ACTIONS");
+        if (isCI == null || !isCI.equalsIgnoreCase("true")) {
+            AppiumServerManager.startServer();
+        }
     }
 
     @BeforeMethod
@@ -39,7 +41,7 @@ public class BaseTest {
         // 1. Force creation of an isolated ExtentTest node for THIS specific test method
         ExtentTest currentTestNode = ExtentManager.createTest(method.getName());
 
-        // 2. Initialize Driver with thread-bound ExtentTest instance (Capabilities loaded from config.json)
+        // 2. Initialize Driver with thread-bound ExtentTest instance (Capabilities loaded from config.json or System properties)
         DriverManager.initializeDriver(currentTestNode);
 
         // 3. Start Appium screen recording for this specific test run
@@ -48,7 +50,7 @@ public class BaseTest {
         AndroidDriver driver = DriverManager.getRawDriver();
         String appPackage = ConfigReader.getProperty("appPackage");
 
-        if (driver != null) {
+        if (driver != null && appPackage != null) {
             // 1. Terminate running instance from previous test
             if (driver.isAppInstalled(appPackage)) {
                 driver.terminateApp(appPackage);
@@ -95,24 +97,29 @@ public class BaseTest {
                             + relativeVideoPath + "' type='video/mp4'></video>");
                 }
             }
+
+            // STEP C: Optional: Terminate app after test completion (Executed while driver is still active)
+            AndroidDriver driver = DriverManager.getRawDriver();
+            String appPackage = ConfigReader.getProperty("appPackage");
+            if (driver != null && appPackage != null) {
+                driver.terminateApp(appPackage);
+            }
+
         } catch (Exception e) {
             System.err.println("Error attaching media artifacts to test node: " + e.getMessage());
         } finally {
-            // STEP C: Tear down driver session and clean up ThreadLocal bindings
+            // STEP D: Tear down driver session and clean up ThreadLocal bindings
             DriverManager.quitDriver();
             ExtentManager.removeTest();
-        }
-     // Optional: Terminate app after test completion
-        AndroidDriver driver = DriverManager.getRawDriver();
-        String appPackage = ConfigReader.getProperty("appPackage");
-        if (driver != null && appPackage != null) {
-            driver.terminateApp(appPackage);
         }
     }
 
     @AfterSuite
     public void stopServer() {
-        AppiumServerManager.stopServer();
+        String isCI = System.getenv("GITHUB_ACTIONS");
+        if (isCI == null || !isCI.equalsIgnoreCase("true")) {
+            AppiumServerManager.stopServer();
+        }
         ExtentManager.flush();
     }
 }

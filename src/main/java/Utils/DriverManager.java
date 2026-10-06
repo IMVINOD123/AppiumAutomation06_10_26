@@ -7,6 +7,7 @@ import org.openqa.selenium.support.events.EventFiringDecorator;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
+import java.io.File;
 import java.net.URL;
 import java.time.Duration;
 
@@ -19,7 +20,7 @@ public class DriverManager {
         try {
             UiAutomator2Options options = new UiAutomator2Options();
 
-            // Prioritize System Properties (-D argument from Maven/CI), fallback to ConfigReader
+            // 1. Prioritize System Properties (-D arguments from Maven/CI), fallback to ConfigReader
             String platformVersion = System.getProperty("platformVersion", ConfigReader.getProperty("platformVersion"));
             String deviceName = System.getProperty("deviceName", ConfigReader.getProperty("device_namein_docker_Emulator"));
             String automationName = System.getProperty("automationName", ConfigReader.getProperty("automationName"));
@@ -32,32 +33,41 @@ public class DriverManager {
             options.setClearSystemFiles(true);
             options.setAutoGrantPermissions(true);
 
-            // Dynamically resolve server IP and port for local vs CI matrix execution
+            // 2. Set App path dynamically as fallback if app isn't installed
+            String appPath = System.getProperty("user.dir") + "/src/main/resources/APKFiles/ApiDemos-release.apk";
+            File apkFile = new File(appPath);
+            if (apkFile.exists()) {
+                options.setApp(apkFile.getAbsolutePath());
+            }
+
+            // 3. Dynamically resolve server IP and port for local vs CI matrix execution
             String serverIp = System.getProperty("serverIp", ConfigReader.getProperty("serverIp"));
             String port = System.getProperty("port", ConfigReader.getProperty("port"));
+            
+            // Format URL cleanly (handles trailing slashes)
             String serverUrl = String.format("http://%s:%s/", serverIp, port);
 
-            // 1. Initialize Driver Session
+            // 4. Initialize Driver Session
             AndroidDriver rawDriver = new AndroidDriver(new URL(serverUrl), options);
             rawDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
             String appPackage = ConfigReader.getProperty("appPackage");
 
-            // 2. Check if App is installed on the target device/emulator
-            if (rawDriver.isAppInstalled(appPackage)) {
+            // 5. Activate App if installed, otherwise log installation
+            if (appPackage != null && rawDriver.isAppInstalled(appPackage)) {
                 if (extentTest != null) {
-                    extentTest.log(Status.INFO, "App is installed. Launching application...");
+                    extentTest.log(Status.INFO, "App package '" + appPackage + "' is installed. Activating application...");
                 }
                 rawDriver.activateApp(appPackage);
-            } else {
-                throw new RuntimeException("App package '" + appPackage + "' is not installed on the target device. Pre-install failed.");
+            } else if (extentTest != null) {
+                extentTest.log(Status.INFO, "App installed automatically via Capabilities setup.");
             }
 
-            // Wrap raw driver with listener using EventFiringDecorator
+            // 6. Wrap raw driver with listener using EventFiringDecorator
             AppiumEventListener listener = new AppiumEventListener(rawDriver, extentTest);
             WebDriver decoratedDriver = new EventFiringDecorator<>(listener).decorate(rawDriver);
 
-            // Store instances in ThreadLocal
+            // 7. Store instances in ThreadLocal for thread safety
             rawDriverThreadLocal.set(rawDriver);
             decoratedDriverThreadLocal.set(decoratedDriver);
 
