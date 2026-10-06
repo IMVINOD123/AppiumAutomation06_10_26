@@ -1,8 +1,8 @@
 {
 	"include": [
 		{
-			"android-version": "13.0",
-			"api-level": 33,
+			"android-version": "12.0",
+			"api-level": 32,
 			"target": "google_apis",
 			"device-name": "Samsung Galaxy S24"
 		}
