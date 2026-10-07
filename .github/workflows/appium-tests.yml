@@ -79,7 +79,7 @@ jobs:
             adb install src/main/resources/APKFiles/ApiDemos-release.apk
             mvn clean test -DplatformVersion=${{ matrix.android-version }} -DserverIp=127.0.0.1 -Dport=4723
 
-      - name: Upload Execution Reports for Android ${{ matrix.android-version }}
+      - name: Upload Execution Reports & Media Artifacts for Android ${{ matrix.android-version }}
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -88,6 +88,7 @@ jobs:
             target/surefire-reports/
             test-output/
             reports/
+            videos/
             appium-emulator-${{ matrix.api-level }}.log
 
   # ====================================================

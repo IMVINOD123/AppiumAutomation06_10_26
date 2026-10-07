@@ -62,7 +62,7 @@ public class BaseTest {
 		ExtentTest currentTestNode = ExtentManager.getTest();
 
 		if (currentTestNode != null) {
-			// STEP A: Capture and attach status & screenshot
+			// STEP A: Log Pass/Fail Status and Screenshot
 			if (result.getStatus() == ITestResult.FAILURE) {
 				String errorMessage = (result.getThrowable() != null) ? result.getThrowable().getMessage()
 						: "Test Failed";
@@ -75,20 +75,21 @@ public class BaseTest {
 				currentTestNode.log(Status.SKIP, "Test Skipped: " + result.getName());
 			}
 
-			// 🟢 STEP B: Stop screen recording & attach MP4 video PER TEST METHOD
+			// 🟢 STEP B: Embed Base64 Video Directly into Report HTML
 			try {
 				String base64Video = DriverManager.stopRecording();
 				if (base64Video != null && !base64Video.trim().isEmpty()) {
-					String relativeVideoPath = ScreenshotUtils.saveVideoFile(base64Video, result.getName());
-					if (!relativeVideoPath.isEmpty()) {
-						currentTestNode.info("<b>Test Case Execution Playback:</b><br/>"
-								+ "<video width='320' height='240' controls><source src='" + relativeVideoPath
-								+ "' type='video/mp4'></video>");
-					}
+					// Inline Base64 video tag eliminates relative file dependency on CI
+					String videoHtml = "<b>Test Case Execution Playback:</b><br/>"
+							+ "<video width='320' height='240' controls>" + "<source src='data:video/mp4;base64,"
+							+ base64Video + "' type='video/mp4'>" + "</video>";
+
+					currentTestNode.info(videoHtml);
+				} else {
+					currentTestNode.info("<i>Screen recording was empty or skipped by Appium server.</i>");
 				}
 			} catch (Exception e) {
-				System.err.println(
-						"Error attaching video recording for test " + result.getName() + ": " + e.getMessage());
+				System.err.println("Error attaching video for " + result.getName() + ": " + e.getMessage());
 			}
 		}
 	}
