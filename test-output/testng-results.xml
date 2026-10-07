@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-10-07T16:22:21 IST" name="Appium Sauce Labs POM Suite" finished-at="2026-10-07T16:24:42 IST" duration-ms="141574">
+  <suite started-at="2026-10-07T17:55:29 IST" name="Appium Sauce Labs POM Suite" finished-at="2026-10-07T17:57:58 IST" duration-ms="149284">
     <groups>
     </groups>
-    <test started-at="2026-10-07T16:22:21 IST" name="Sauce Labs Demo- Login and Log out Verification" finished-at="2026-10-07T16:24:42 IST" duration-ms="141574">
+    <test started-at="2026-10-07T17:55:29 IST" name="Sauce Labs Demo- Login and Log out Verification" finished-at="2026-10-07T17:57:58 IST" duration-ms="149284">
       <class name="tests.LoginTest_SauceLabs_MyDemoApp">
-        <test-method is-config="true" signature="startServer()[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:22:21 IST" name="startServer" finished-at="2026-10-07T16:22:21 IST" duration-ms="47" status="PASS">
+        <test-method is-config="true" signature="startServer()[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:55:29 IST" name="startServer" finished-at="2026-10-07T17:55:29 IST" duration-ms="35" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startServer -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:22:21 IST" name="setUpClass" finished-at="2026-10-07T16:22:28 IST" duration-ms="6942" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:55:29 IST" name="setUpClass" finished-at="2026-10-07T17:55:38 IST" duration-ms="8661" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="BasesetUp()[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:22:28 IST" name="BasesetUp" finished-at="2026-10-07T16:22:28 IST" duration-ms="21" status="PASS">
+        <test-method is-config="true" signature="BasesetUp()[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:55:38 IST" name="BasesetUp" finished-at="2026-10-07T17:55:38 IST" duration-ms="19" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BasesetUp -->
-        <test-method is-config="true" signature="setUpMethod(java.lang.reflect.Method)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:22:28 IST" name="setUpMethod" finished-at="2026-10-07T16:22:30 IST" duration-ms="1872" status="PASS">
+        <test-method is-config="true" signature="setUpMethod(java.lang.reflect.Method)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:55:38 IST" name="setUpMethod" finished-at="2026-10-07T17:55:39 IST" duration-ms="1062" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -30,22 +30,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpMethod -->
-        <test-method signature="testLoginWithEmptyFields()[pri:1, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:22:30 IST" name="testLoginWithEmptyFields" description="Verify error message when logging in with empty fields" finished-at="2026-10-07T16:23:01 IST" duration-ms="31368" status="PASS">
+        <test-method signature="testLoginWithEmptyFields()[pri:1, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:55:39 IST" name="testLoginWithEmptyFields" description="Verify error message when logging in with empty fields" finished-at="2026-10-07T17:56:11 IST" duration-ms="31733" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLoginWithEmptyFields -->
-        <test-method is-config="true" signature="logTestResult(org.testng.ITestResult)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:23:01 IST" name="logTestResult" finished-at="2026-10-07T16:23:02 IST" duration-ms="1141" status="PASS">
+        <test-method is-config="true" signature="logTestResult(org.testng.ITestResult)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:56:11 IST" name="logTestResult" finished-at="2026-10-07T17:56:13 IST" duration-ms="2408" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testLoginWithEmptyFields status=SUCCESS method=LoginTest_SauceLabs_MyDemoApp.testLoginWithEmptyFields()[pri:1, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979] output={null}]]]>
+                <![CDATA[[TestResult name=testLoginWithEmptyFields status=SUCCESS method=LoginTest_SauceLabs_MyDemoApp.testLoginWithEmptyFields()[pri:1, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logTestResult -->
-        <test-method is-config="true" signature="setUpMethod(java.lang.reflect.Method)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:23:02 IST" name="setUpMethod" finished-at="2026-10-07T16:23:03 IST" duration-ms="523" status="PASS">
+        <test-method is-config="true" signature="setUpMethod(java.lang.reflect.Method)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:56:13 IST" name="setUpMethod" finished-at="2026-10-07T17:56:14 IST" duration-ms="625" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -56,22 +56,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpMethod -->
-        <test-method signature="testLoginWithEmptyPassword()[pri:2, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:23:03 IST" name="testLoginWithEmptyPassword" description="Verify error message when password is empty" finished-at="2026-10-07T16:23:15 IST" duration-ms="12672" status="PASS">
+        <test-method signature="testLoginWithEmptyPassword()[pri:2, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:56:14 IST" name="testLoginWithEmptyPassword" description="Verify error message when password is empty" finished-at="2026-10-07T17:56:26 IST" duration-ms="12608" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLoginWithEmptyPassword -->
-        <test-method is-config="true" signature="logTestResult(org.testng.ITestResult)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:23:15 IST" name="logTestResult" finished-at="2026-10-07T16:23:17 IST" duration-ms="1110" status="PASS">
+        <test-method is-config="true" signature="logTestResult(org.testng.ITestResult)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:56:26 IST" name="logTestResult" finished-at="2026-10-07T17:56:28 IST" duration-ms="2273" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testLoginWithEmptyPassword status=SUCCESS method=LoginTest_SauceLabs_MyDemoApp.testLoginWithEmptyPassword()[pri:2, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979] output={null}]]]>
+                <![CDATA[[TestResult name=testLoginWithEmptyPassword status=SUCCESS method=LoginTest_SauceLabs_MyDemoApp.testLoginWithEmptyPassword()[pri:2, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logTestResult -->
-        <test-method is-config="true" signature="setUpMethod(java.lang.reflect.Method)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:23:17 IST" name="setUpMethod" finished-at="2026-10-07T16:23:17 IST" duration-ms="573" status="PASS">
+        <test-method is-config="true" signature="setUpMethod(java.lang.reflect.Method)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:56:28 IST" name="setUpMethod" finished-at="2026-10-07T17:56:29 IST" duration-ms="645" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -82,22 +82,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpMethod -->
-        <test-method signature="testLoginWithInvalidCredentials()[pri:3, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:23:17 IST" name="testLoginWithInvalidCredentials" description="Verify error message with invalid credentials" finished-at="2026-10-07T16:23:30 IST" duration-ms="12873" status="PASS">
+        <test-method signature="testLoginWithInvalidCredentials()[pri:3, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:56:29 IST" name="testLoginWithInvalidCredentials" description="Verify error message with invalid credentials" finished-at="2026-10-07T17:56:42 IST" duration-ms="12900" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLoginWithInvalidCredentials -->
-        <test-method is-config="true" signature="logTestResult(org.testng.ITestResult)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:23:30 IST" name="logTestResult" finished-at="2026-10-07T16:23:31 IST" duration-ms="1079" status="PASS">
+        <test-method is-config="true" signature="logTestResult(org.testng.ITestResult)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:56:42 IST" name="logTestResult" finished-at="2026-10-07T17:56:44 IST" duration-ms="2198" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testLoginWithInvalidCredentials status=SUCCESS method=LoginTest_SauceLabs_MyDemoApp.testLoginWithInvalidCredentials()[pri:3, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979] output={null}]]]>
+                <![CDATA[[TestResult name=testLoginWithInvalidCredentials status=SUCCESS method=LoginTest_SauceLabs_MyDemoApp.testLoginWithInvalidCredentials()[pri:3, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logTestResult -->
-        <test-method is-config="true" signature="setUpMethod(java.lang.reflect.Method)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:23:31 IST" name="setUpMethod" finished-at="2026-10-07T16:23:32 IST" duration-ms="598" status="PASS">
+        <test-method is-config="true" signature="setUpMethod(java.lang.reflect.Method)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:56:44 IST" name="setUpMethod" finished-at="2026-10-07T17:56:45 IST" duration-ms="643" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -108,22 +108,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpMethod -->
-        <test-method signature="testLoginWithLockedOutUser()[pri:4, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:23:32 IST" name="testLoginWithLockedOutUser" description="Verify error message for locked-out user account" finished-at="2026-10-07T16:23:45 IST" duration-ms="12915" status="PASS">
+        <test-method signature="testLoginWithLockedOutUser()[pri:4, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:56:45 IST" name="testLoginWithLockedOutUser" description="Verify error message for locked-out user account" finished-at="2026-10-07T17:56:58 IST" duration-ms="12991" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLoginWithLockedOutUser -->
-        <test-method is-config="true" signature="logTestResult(org.testng.ITestResult)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:23:45 IST" name="logTestResult" finished-at="2026-10-07T16:23:46 IST" duration-ms="1127" status="PASS">
+        <test-method is-config="true" signature="logTestResult(org.testng.ITestResult)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:56:58 IST" name="logTestResult" finished-at="2026-10-07T17:57:00 IST" duration-ms="2168" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testLoginWithLockedOutUser status=SUCCESS method=LoginTest_SauceLabs_MyDemoApp.testLoginWithLockedOutUser()[pri:4, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979] output={null}]]]>
+                <![CDATA[[TestResult name=testLoginWithLockedOutUser status=SUCCESS method=LoginTest_SauceLabs_MyDemoApp.testLoginWithLockedOutUser()[pri:4, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logTestResult -->
-        <test-method is-config="true" signature="setUpMethod(java.lang.reflect.Method)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:23:46 IST" name="setUpMethod" finished-at="2026-10-07T16:23:46 IST" duration-ms="585" status="PASS">
+        <test-method is-config="true" signature="setUpMethod(java.lang.reflect.Method)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:57:00 IST" name="setUpMethod" finished-at="2026-10-07T17:57:01 IST" duration-ms="669" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -134,26 +134,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpMethod -->
-        <test-method signature="testSuccessfulLoginWithValidCredentials()[pri:5, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:23:46 IST" name="testSuccessfulLoginWithValidCredentials" description="Verify successful login with valid credentials" finished-at="2026-10-07T16:24:40 IST" duration-ms="54162" status="PASS">
+        <test-method signature="testSuccessfulLoginWithValidCredentials()[pri:5, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:57:01 IST" name="testSuccessfulLoginWithValidCredentials" description="Verify successful login with valid credentials" finished-at="2026-10-07T17:57:55 IST" duration-ms="54404" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSuccessfulLoginWithValidCredentials -->
-        <test-method is-config="true" signature="logTestResult(org.testng.ITestResult)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:24:40 IST" name="logTestResult" finished-at="2026-10-07T16:24:42 IST" duration-ms="1285" status="PASS">
+        <test-method is-config="true" signature="logTestResult(org.testng.ITestResult)[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:57:55 IST" name="logTestResult" finished-at="2026-10-07T17:57:58 IST" duration-ms="2477" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testSuccessfulLoginWithValidCredentials status=SUCCESS method=LoginTest_SauceLabs_MyDemoApp.testSuccessfulLoginWithValidCredentials()[pri:5, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979] output={null}]]]>
+                <![CDATA[[TestResult name=testSuccessfulLoginWithValidCredentials status=SUCCESS method=LoginTest_SauceLabs_MyDemoApp.testSuccessfulLoginWithValidCredentials()[pri:5, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logTestResult -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:24:42 IST" name="tearDownClass" finished-at="2026-10-07T16:24:42 IST" duration-ms="674" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:57:58 IST" name="tearDownClass" finished-at="2026-10-07T17:57:58 IST" duration-ms="742" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-        <test-method is-config="true" signature="stopServer()[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@66d18979]" started-at="2026-10-07T16:24:42 IST" name="stopServer" finished-at="2026-10-07T16:24:43 IST" duration-ms="382" status="PASS">
+        <test-method is-config="true" signature="stopServer()[pri:0, instance:tests.LoginTest_SauceLabs_MyDemoApp@ae13544]" started-at="2026-10-07T17:57:58 IST" name="stopServer" finished-at="2026-10-07T17:57:59 IST" duration-ms="511" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- stopServer -->

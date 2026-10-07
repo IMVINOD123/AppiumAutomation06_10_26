@@ -41,7 +41,8 @@ public class ScreenshotUtils {
      */
     public static void cleanVideoDirectory() {
         try {
-            File videoDir = new File("reports/videos");
+            String dirPath = System.getProperty("user.dir") + File.separator + "reports" + File.separator + "videos";
+            File videoDir = new File(dirPath);
             if (videoDir.exists() && videoDir.isDirectory()) {
                 File[] files = videoDir.listFiles();
                 if (files != null) {
@@ -58,30 +59,53 @@ public class ScreenshotUtils {
         }
     }
 
+    /**
+     * Decodes Base64 video string and saves it into reports/videos/ directory.
+     * 
+     * @param base64Video The base64 video string from driver.stopRecordingScreen()
+     * @param testName Name of the test method
+     * @return Relative path ("videos/fileName.mp4") to embed directly into Extent HTML reports
+     */
     public static String saveVideoFile(String base64Video, String testName) {
         if (base64Video == null || base64Video.trim().isEmpty()) {
+            System.err.println("[Video Log] Base64 video string is empty or null.");
             return "";
         }
+
         try {
-            File videoDir = new File("reports/videos");
+            // 1. Ensure target directory structure exists
+            String dirPath = System.getProperty("user.dir") + File.separator + "reports" + File.separator + "videos";
+            File videoDir = new File(dirPath);
             if (!videoDir.exists()) {
-                videoDir.mkdirs();
+                boolean created = videoDir.mkdirs();
+                if (created) {
+                    System.out.println("[Video Log] Created directory: " + videoDir.getAbsolutePath());
+                }
             }
 
-            // Append unique System nanosecond timestamp to guarantee isolated file paths
-            String fileName = testName + "_" + System.nanoTime() + ".mp4";
-            String fullPath = "reports/videos/" + fileName;
+            // 2. Sanitize testName to prevent illegal path characters
+            String sanitizedTestName = testName.replaceAll("[^a-zA-Z0-9_-]", "_");
+            String fileName = sanitizedTestName + "_" + System.currentTimeMillis() + ".mp4";
+            File destinationFile = new File(videoDir, fileName);
 
-            byte[] videoBytes = Base64.getDecoder().decode(base64Video);
-            try (OutputStream stream = new FileOutputStream(fullPath)) {
+            // 3. Clean up Base64 string from newline characters or white space
+            String cleanBase64 = base64Video.replaceAll("\\s+", "");
+            byte[] videoBytes = Base64.getDecoder().decode(cleanBase64);
+
+            // 4. Write binary video bytes directly to disk
+            try (OutputStream stream = new FileOutputStream(destinationFile)) {
                 stream.write(videoBytes);
-                stream.flush(); // Flush video output buffer directly to disk
+                stream.flush();
             }
 
-            // Returns relative path for Extent HTML video rendering
+            System.out.println("[Video Log] Video saved successfully at: " + destinationFile.getAbsolutePath());
+
+            // 5. Return relative path for HTML Extent Report
             return "videos/" + fileName;
+
         } catch (Exception e) {
-            System.err.println("Failed to save unique video file: " + e.getMessage());
+            System.err.println("[Video Error] Failed to save video file for test '" + testName + "': " + e.getMessage());
+            e.printStackTrace();
             return "";
         }
     }

@@ -37,24 +37,23 @@ public class BaseTest {
 
 	@BeforeClass
 	public void setUpClass() {
-		// 1. Initialize Driver ONCE for all test methods in this class
+		// Initialize Driver ONCE for all test methods in this class
 		DriverManager.initializeDriver(null);
-
-		// 2. Start screen recording for the class execution session
-		DriverManager.startRecording();
 	}
 
 	@BeforeMethod
 	public void setUpMethod(Method method) {
-		// 🟢 Create individual Extent Report test node for each @Test method
+		// Create individual Extent Report test node for each @Test method
 		ExtentTest testNode = ExtentManager.createTest(method.getName());
 
 		// Attach test description if declared in @Test(description = "...")
 		Test testAnnotation = method.getAnnotation(Test.class);
 		if (testAnnotation != null && !testAnnotation.description().isEmpty()) {
 			testNode.info(testAnnotation.description());
-			DriverManager.startRecording();
 		}
+
+		// 🟢 ALWAYS start screen recording at the start of EVERY test method
+		DriverManager.startRecording();
 	}
 
 	@AfterMethod
@@ -75,16 +74,21 @@ public class BaseTest {
 				currentTestNode.log(Status.SKIP, "Test Skipped: " + result.getName());
 			}
 
-			// 🟢 STEP B: Embed Base64 Video Directly into Report HTML
+			// 🟢 STEP B: Save Physical MP4 File & Embed Relative Path into Extent Report
 			try {
 				String base64Video = DriverManager.stopRecording();
 				if (base64Video != null && !base64Video.trim().isEmpty()) {
-					// Inline Base64 video tag eliminates relative file dependency on CI
-					String videoHtml = "<b>Test Case Execution Playback:</b><br/>"
-							+ "<video width='320' height='240' controls>" + "<source src='data:video/mp4;base64,"
-							+ base64Video + "' type='video/mp4'>" + "</video>";
+					// 1. Save Base64 video into physical .mp4 file in reports/videos/
+					String relativeVideoPath = ScreenshotUtils.saveVideoFile(base64Video, result.getName());
 
-					currentTestNode.info(videoHtml);
+					// 2. Attach relative HTML video player referencing the saved .mp4 file
+					if (!relativeVideoPath.isEmpty()) {
+						String videoHtml = "<b>Test Case Execution Playback:</b><br/>"
+								+ "<video width='320' height='240' controls>" 
+								+ "<source src='" + relativeVideoPath + "' type='video/mp4'>" 
+								+ "</video>";
+						currentTestNode.info(videoHtml);
+					}
 				} else {
 					currentTestNode.info("<i>Screen recording was empty or skipped by Appium server.</i>");
 				}

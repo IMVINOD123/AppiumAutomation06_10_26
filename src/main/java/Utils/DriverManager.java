@@ -21,8 +21,6 @@ public class DriverManager {
 		try {
 			UiAutomator2Options options = new UiAutomator2Options();
 
-			// 1. Prioritize System Properties (-D arguments from Maven/CI), fallback to
-			// ConfigReader
 			String platformVersion = System.getProperty("platformVersion", ConfigReader.getProperty("platformVersion"));
 			String deviceName = System.getProperty("deviceName", ConfigReader.getProperty("deviceName_Local_Emulator"));
 			String automationName = System.getProperty("automationName", ConfigReader.getProperty("automationName"));
@@ -35,27 +33,22 @@ public class DriverManager {
 			options.setClearSystemFiles(true);
 			options.setAutoGrantPermissions(true);
 
-			// 2. Set App path dynamically as fallback if app isn't installed
 			String appPath = System.getProperty("user.dir") + ConfigReader.getProperty("saucelabsAPK");
 			File apkFile = new File(appPath);
 			if (apkFile.exists()) {
 				options.setApp(apkFile.getAbsolutePath());
 			}
 
-			// 3. Dynamically resolve server IP and port for local vs CI matrix execution
 			String serverIp = System.getProperty("serverIp", ConfigReader.getProperty("serverIp"));
 			String port = System.getProperty("port", ConfigReader.getProperty("port"));
 
-			// Format URL cleanly (handles trailing slashes)
 			String serverUrl = String.format("http://%s:%s/", serverIp, port);
 
-			// 4. Initialize Driver Session
 			AndroidDriver rawDriver = new AndroidDriver(new URL(serverUrl), options);
 			rawDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 			String appPackage = ConfigReader.getProperty("SauceLabs_appPackage");
 
-			// 5. Activate App if installed, otherwise log installation
 			if (appPackage != null && rawDriver.isAppInstalled(appPackage)) {
 				if (extentTest != null) {
 					extentTest.log(Status.INFO, "App package '" + appPackage + "' activated.");
@@ -65,11 +58,9 @@ public class DriverManager {
 				extentTest.log(Status.INFO, "App installed automatically via Capabilities setup.");
 			}
 
-			// 6. Wrap raw driver with listener using EventFiringDecorator
 			AppiumEventListener listener = new AppiumEventListener(rawDriver, extentTest);
 			WebDriver decoratedDriver = new EventFiringDecorator<>(listener).decorate(rawDriver);
 
-			// 7. Store instances in ThreadLocal for thread safety
 			rawDriverThreadLocal.set(rawDriver);
 			decoratedDriverThreadLocal.set(decoratedDriver);
 
@@ -86,12 +77,6 @@ public class DriverManager {
 		return rawDriverThreadLocal.get();
 	}
 
-	/**
-	 * Starts screen recording using Appium's static factory method.
-	 */
-	/**
-	 * Starts screen recording without options (works across all Appium versions).
-	 */
 	public static void startRecording() {
 		AndroidDriver driver = getRawDriver();
 		if (driver != null) {
@@ -103,12 +88,6 @@ public class DriverManager {
 		}
 	}
 
-	/**
-	 * Stops screen recording with a short buffer delay to allow video frame buffer
-	 * flushing.
-	 * 
-	 * @return Base64 encoded string of the recorded video.
-	 */
 	public static String stopRecording() {
 		AndroidDriver driver = getRawDriver();
 		if (driver != null) {
