@@ -1,17 +1,16 @@
 {
-	"serverIp": "127.0.0.1",
-	"port": "4724",
-	"deviceName_Local_Emulator": "AndroidEmulator_21_09",
-	"platformVersion": "14.0",
-	"appPackage": "io.appium.android.apis",
-	"appActivity": ".ApiDemos",
-	"automationName": "UiAutomator2",
-	"device_namein_docker_Emulator": "emulator-5554",
-	"apkPath_ApiDemos": "src/main/resources/APKFiles/ApiDemos-release.apk",
-	"DragAndDropPageText":"DragAndDropPage",
-	"scrollableText":"scrollableText",
-	"viewsLabel":"viewsLabel",
-	"dragAndDropLabel":"dragAndDropLabel",
-	"viewLabel":"Views",
-	"switchesLabel":"Switches"
+  "serverIp": "127.0.0.1",
+  "port": "4724",
+  "automationName": "UiAutomator2",
+  "platformVersion": "14.0",
+  "deviceName_Local_Emulator": "AndroidEmulator_21_09",
+  "device_namein_docker_Emulator": "emulator-5554",
+
+  "SauceLabs_appPackage": "com.saucelabs.mydemoapp.rn",
+  "SauceLabs_appActivity": "com.saucelabs.mydemoapp.rn.MainActivity",
+  "saucelabsAPK": "/src/main/resources/APKFiles/Android-MyDemoAppRN.1.3.0.build-244.apk",
+
+  "appPackage": "io.appium.android.apis",
+  "appActivity": ".ApiDemos",
+  "apkPath_ApiDemos": "/src/main/resources/APKFiles/ApiDemos-release.apk"
 }

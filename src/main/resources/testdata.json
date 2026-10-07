@@ -1,0 +1,19 @@
+{
+	"SauceLabs_userName": "bob@example.com",
+	"SauceLabs_Password": "10203040",
+	"SauceLabs_invalidUserName": "xyz@gamil.com",
+	"SauceLabs_invalidPassword": "1243434",
+	"SauceLabs_lockedUser":"alice@example.com",
+	"LoginTitle": "Login",
+	"ProductLabel": "Products",
+	"DragAndDropPageText": "DragAndDropPage",
+	"scrollableText": "scrollableText",
+	"viewsLabel": "viewsLabel",
+	"dragAndDropLabel": "dragAndDropLabel",
+	"viewLabel": "Views",
+	"errorMessageUserMissing": "Username is required",
+	"SauceLabs_LoginPage": "SauceLabs_LoginPage",
+	"errorMessagePasswordRequired": "Password is required",
+	"invalidCredentialsMessage": "Provided credentials do not match any user in this service.",
+	"lockedOutUserMessage": "Sorry, this user has been locked out."
+}

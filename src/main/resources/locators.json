@@ -1,66 +1,140 @@
 {
-  "DragAndDropPage": {
-    "viewsLabel": {
-      "type": "xpath",
-      "value": "//android.widget.TextView[@content-desc=\"Views\"]"
-    },
-    "dragAndDropLabel": {
-      "type": "xpath",
-      "value": "//android.widget.TextView[@content-desc=\"Drag and Drop\"]"
-    },
-    "dot1": {
-      "type": "id",
-      "value": "io.appium.android.apis:id/drag_dot_1"
-    },
-    "dot2": {
-      "type": "id",
-      "value": "io.appium.android.apis:id/drag_dot_2"
-    },
-    "droppedText": {
-      "type": "id",
-      "value": "io.appium.android.apis:id/drag_result_text"
-    },
-    "scrollableText": {
-      "type": "androidUiAutomator",
-      "value": "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\"%s\"))"
-    }
-  },
-  "ViewsPage": {
-    "monitoredSwitch": {
-      "type": "accessibilityId",
-      "value": "Monitored switch"
-    },
-    "toastMessage": {
-      "type": "xpath",
-      "value": "//android.widget.Toast[contains(@text, 'Monitored switch')]"
-    },
-    "viewsLabel": {
-      "type": "xpath",
-      "value": "//android.widget.TextView[@content-desc=\"Views\"]"
-    },
-    "switchesLabel": {
-      "type": "xpath",
-      "value": "//android.widget.TextView[@content-desc=\"Switches\"]"
-    },
-    "standardSwitch": {
-      "type": "xpath",
-      "value": "//android.widget.Switch[@content-desc=\"Standard switch\"]"
-    },
-    "defaultOnSwitch": {
-      "type": "xpath",
-      "value": "//android.widget.Switch[@content-desc=\"Default is on\"]"
-    },
-    "monitoredSwitchLocator": {
-      "type": "id",
-      "value": "io.appium.android.apis:id/monitored_switch"
-    },
-    "scrollableText": {
-      "type": "androidUiAutomator",
-      "value": "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\"%s\"))"
-    },
-	"textLabelByText": {
-	  "type": "xpath",
-	  "value": "//android.widget.TextView[@text='%s']"
+	"DragAndDropPage": {
+		"viewsLabel": {
+			"type": "xpath",
+			"value": "//android.widget.TextView[@content-desc=\"Views\"]"
+		},
+		"dragAndDropLabel": {
+			"type": "xpath",
+			"value": "//android.widget.TextView[@content-desc=\"Drag and Drop\"]"
+		},
+		"dot1": {
+			"type": "id",
+			"value": "io.appium.android.apis:id/drag_dot_1"
+		},
+		"dot2": {
+			"type": "id",
+			"value": "io.appium.android.apis:id/drag_dot_2"
+		},
+		"droppedText": {
+			"type": "id",
+			"value": "io.appium.android.apis:id/drag_result_text"
+		},
+		"scrollableText": {
+			"type": "androidUiAutomator",
+			"value": "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\"%s\"))"
+		}
+	},
+	"ViewsPage": {
+		"monitoredSwitch": {
+			"type": "accessibilityId",
+			"value": "Monitored switch"
+		},
+		"toastMessage": {
+			"type": "xpath",
+			"value": "//android.widget.Toast[contains(@text, 'Monitored switch')]"
+		},
+		"viewsLabel": {
+			"type": "xpath",
+			"value": "//android.widget.TextView[@content-desc=\"Views\"]"
+		},
+		"switchesLabel": {
+			"type": "xpath",
+			"value": "//android.widget.TextView[@content-desc=\"Switches\"]"
+		},
+		"standardSwitch": {
+			"type": "xpath",
+			"value": "//android.widget.Switch[@content-desc=\"Standard switch\"]"
+		},
+		"defaultOnSwitch": {
+			"type": "xpath",
+			"value": "//android.widget.Switch[@content-desc=\"Default is on\"]"
+		},
+		"monitoredSwitchLocator": {
+			"type": "id",
+			"value": "io.appium.android.apis:id/monitored_switch"
+		},
+		"scrollableText": {
+			"type": "androidUiAutomator",
+			"value": "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\"%s\"))"
+		},
+		"textLabelByText": {
+			"type": "xpath",
+			"value": "//android.widget.TextView[@text='%s']"
+		}
+	},
+	"SauceLabs_LoginPage": {
+		"MenuLabel": {
+			"type": "xpath",
+			"value": "//android.view.ViewGroup[@content-desc='open menu']/android.widget.ImageView"
+		},
+		"LoginLabel": {
+			"type": "xpath",
+			"value": "//android.view.ViewGroup[@content-desc='menu item log in']"
+		},
+		"LoginDashBoard": {
+			"type": "xpath",
+			"value": "//android.view.ViewGroup[@content-desc='container header']/android.widget.TextView[@text='Login']"
+		},
+		"UsernameInput": {
+			"type": "accessibilityId",
+			"value": "Username input field"
+		},
+		"PasswordInput": {
+			"type": "accessibilityId",
+			"value": "Password input field"
+		},
+		"loginButton": {
+			"type": "accessibilityId",
+			"value": "Login button"
+		},
+		"ProductLabel": {
+			"type": "xpath",
+			"value": "//android.widget.TextView[@text='Products']"
+		},
+		"LogOutLabel": {
+			"type": "xpath",
+			"value": "//android.widget.TextView[@text='Log Out']"
+		},
+		"AlertTitle": {
+			"type": "id",
+			"value": "android:id/alertTitle"
+		},
+		"AlertMessage": {
+			"type": "id",
+			"value": "android:id/message"
+		},
+		"confirmLogOutBtn": {
+			"type": "id",
+			"value": "android:id/button1"
+		},
+		"AlertTitleSuccessfully": {
+			"type": "id",
+			"value": "android:id/alertTitle"
+		},
+		"AlertTitleSuccessfullyOkBtn": {
+			"type": "id",
+			"value": "android:id/button1"
+		},
+		"LogInText": {
+			"type": "xpath",
+			"value": "//android.view.ViewGroup[@content-desc='container header]/android.widget.TextView[@text='Login']"
+		},
+		"errorEmptyFieldUserName": {
+			"type": "xpath",
+			"value": "//android.widget.TextView[@text='Username is required']"
+		},
+		"errorEmptyFieldPassword": {
+			"type": "xpath",
+			"value": "//android.widget.TextView[@text='Password is required']"
+		},
+		"bothUserAndPasswordInvalid": {
+			"type": "xpath",
+			"value": "//android.widget.TextView[@text='Provided credentials do not match any user in this service.']"
+		},
+		"lockedOutUser": {
+			"type": "xpath",
+			"value": "//android.widget.TextView[@text='Sorry, this user has been locked out.']"
+		}
 	}
-  }
 }

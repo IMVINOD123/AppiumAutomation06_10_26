@@ -33,7 +33,7 @@ public class VeiwTest extends BaseTest {
 		 * "Toast text validation failed!");
 		 */
 		// Scroll and Navigate to Views
-		comman.scrollToAndView(ConfigReader.getProperty("viewLabel"));
+		comman.scrollTo(ConfigReader.getProperty("viewLabel"));
 		ExtentManager.getTest().log(Status.INFO, "Scrolled Till View Locator");
 		//System.out.println("***************Scrolled Till View***************");
 

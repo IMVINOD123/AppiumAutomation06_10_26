@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<suite name="Appium POM Suite">
+<suite name="Appium Sauce Labs POM Suite">
 
-	<test name="API Demos - ViewPage Verification">
+	<!-- <test name="API Demos - ViewPage Verification"> <classes> <class name="tests.VeiwTest" 
+		/> </classes> </test> <test name="API Demos - Drag and Drop Verification"> 
+		<classes> <class name="tests.DragAndDropWithTouchActionTest" /> </classes> 
+		</test> -->
+
+	<test name="Sauce Labs Demo- Login and Log out Verification">
 		<classes>
-			<class name="tests.VeiwTest" />
+			<class name="tests.LoginTest_SauceLabs_MyDemoApp" />
 		</classes>
 	</test>
-
-	<test name="API Demos - Drag and Drop Verification">
-		<classes>
-			<class name="tests.DragAndDropWithTouchActionTest" />
-		</classes>
-	</test>
-
 </suite>

@@ -22,7 +22,7 @@ public class DriverManager {
 
             // 1. Prioritize System Properties (-D arguments from Maven/CI), fallback to ConfigReader
             String platformVersion = System.getProperty("platformVersion", ConfigReader.getProperty("platformVersion"));
-            String deviceName = System.getProperty("deviceName", ConfigReader.getProperty("device_namein_docker_Emulator"));
+            String deviceName = System.getProperty("deviceName", ConfigReader.getProperty("deviceName_Local_Emulator"));
             String automationName = System.getProperty("automationName", ConfigReader.getProperty("automationName"));
 
             options.setPlatformVersion(platformVersion);
@@ -34,7 +34,7 @@ public class DriverManager {
             options.setAutoGrantPermissions(true);
 
             // 2. Set App path dynamically as fallback if app isn't installed
-            String appPath = System.getProperty("user.dir") + "/src/main/resources/APKFiles/ApiDemos-release.apk";
+            String appPath = System.getProperty("user.dir") + ConfigReader.getProperty("saucelabsAPK");
             File apkFile = new File(appPath);
             if (apkFile.exists()) {
                 options.setApp(apkFile.getAbsolutePath());
@@ -51,12 +51,12 @@ public class DriverManager {
             AndroidDriver rawDriver = new AndroidDriver(new URL(serverUrl), options);
             rawDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-            String appPackage = ConfigReader.getProperty("appPackage");
+            String appPackage = ConfigReader.getProperty("SauceLabs_appPackage");
 
             // 5. Activate App if installed, otherwise log installation
             if (appPackage != null && rawDriver.isAppInstalled(appPackage)) {
                 if (extentTest != null) {
-                    extentTest.log(Status.INFO, "App package '" + appPackage + "' is installed. Activating application...");
+                    extentTest.log(Status.INFO, "App package '" + appPackage +"...");
                 }
                 rawDriver.activateApp(appPackage);
             } else if (extentTest != null) {

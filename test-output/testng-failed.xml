@@ -1,30 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Appium POM Suite]">
-  <test thread-count="5" name="API Demos - ViewPage Verification(failed)">
+<suite name="Failed suite [Appium Sauce Labs POM Suite]">
+  <test thread-count="5" name="Sauce Labs Demo- Login and Log out Verification(failed)">
     <classes>
-      <class name="tests.VeiwTest">
+      <class name="tests.LoginTest_SauceLabs_MyDemoApp">
         <methods>
-          <include name="tearDown"/>
-          <include name="testMonitoredSwitchToast"/>
-          <include name="setUp"/>
+          <include name="tearDownClass"/>
+          <include name="testLoginWithLockedOutUser"/>
           <include name="startServer"/>
+          <include name="BasesetUp"/>
+          <include name="logTestResult"/>
           <include name="stopServer"/>
+          <include name="setUpMethod"/>
+          <include name="testLoginWithEmptyPassword"/>
+          <include name="setUpClass"/>
         </methods>
-      </class> <!-- tests.VeiwTest -->
+      </class> <!-- tests.LoginTest_SauceLabs_MyDemoApp -->
     </classes>
-  </test> <!-- API Demos - ViewPage Verification(failed) -->
-  <test thread-count="5" name="API Demos - Drag and Drop Verification(failed)">
-    <classes>
-      <class name="tests.DragAndDropWithTouchActionTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="testDragAndDropUisngTouchActions"/>
-          <include name="setUp"/>
-          <include name="startServer"/>
-          <include name="stopServer"/>
-        </methods>
-      </class> <!-- tests.DragAndDropWithTouchActionTest -->
-    </classes>
-  </test> <!-- API Demos - Drag and Drop Verification(failed) -->
-</suite> <!-- Failed suite [Appium POM Suite] -->
+  </test> <!-- Sauce Labs Demo- Login and Log out Verification(failed) -->
+</suite> <!-- Failed suite [Appium Sauce Labs POM Suite] -->

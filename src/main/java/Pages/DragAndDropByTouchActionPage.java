@@ -28,31 +28,31 @@ public class DragAndDropByTouchActionPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
-    public void scrollToAndView(String text) {
-        // 1. Explicitly wait for the scrollable container to be ready on the screen
-        wait.until(ExpectedConditions.presenceOfElementLocated(
-            AppiumBy.androidUIAutomator("new UiSelector().scrollable(true)")
-        ));
-
-        WebElement targetElement;
-        
-        try {
-            // 2. Scroll into view and capture the target element
-            targetElement = driver.findElement(
-                JsonLocatorReader.getLocator(PAGE_NAME, ConfigReader.getProperty("scrollableText"), text)
-            );
-        } catch (Exception e) {
-            // Fallback: If scrolling fails or element is already visible, attempt direct text search
-            targetElement = wait.until(ExpectedConditions.presenceOfElementLocated(
-                AppiumBy.xpath("//android.widget.TextView[@text='" + text + "']")
-            ));
-        }
-
-        // 3. Click once the element is confirmed clickable
-        wait.until(ExpectedConditions.elementToBeClickable(targetElement)).click();
-
-        ExtentManager.getTest().log(Status.INFO, "Scrolled and clicked on " + text + " option");
-    }
+//    public void scrollToAndView(String text) {
+//        // 1. Explicitly wait for the scrollable container to be ready on the screen
+//        wait.until(ExpectedConditions.presenceOfElementLocated(
+//            AppiumBy.androidUIAutomator("new UiSelector().scrollable(true)")
+//        ));
+//
+//        WebElement targetElement;
+//        
+//        try {
+//            // 2. Scroll into view and capture the target element
+//            targetElement = driver.findElement(
+//                JsonLocatorReader.getLocator(PAGE_NAME, ConfigReader.getProperty("scrollableText"), text)
+//            );
+//        } catch (Exception e) {
+//            // Fallback: If scrolling fails or element is already visible, attempt direct text search
+//            targetElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+//                AppiumBy.xpath("//android.widget.TextView[@text='" + text + "']")
+//            ));
+//        }
+//
+//        // 3. Click once the element is confirmed clickable
+//        wait.until(ExpectedConditions.elementToBeClickable(targetElement)).click();
+//
+//        ExtentManager.getTest().log(Status.INFO, "Scrolled and clicked on " + text + " option");
+//    }
 
     public void dragAndDropLabel() {
         WebElement dragAndDropOption = wait.until(ExpectedConditions.elementToBeClickable(

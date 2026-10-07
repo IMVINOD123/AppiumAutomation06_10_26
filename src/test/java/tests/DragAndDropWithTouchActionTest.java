@@ -19,7 +19,7 @@ public class DragAndDropWithTouchActionTest extends BaseTest {
 		DragAndDropByTouchActionPage dragAndDrop = new DragAndDropByTouchActionPage(DriverManager.getRawDriver());
 		CommanLogics comman=new CommanLogics(DriverManager.getRawDriver());
 
-		comman.scrollToAndView(ConfigReader.getProperty("viewLabel"));
+		comman.scrollTo(ConfigReader.getProperty("viewLabel"));
 		ExtentManager.getTest().log(Status.INFO, "Scrolled Till View Locator");
 
 		dragAndDrop.dragAndDropLabel();

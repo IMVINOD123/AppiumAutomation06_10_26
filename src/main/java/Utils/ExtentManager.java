@@ -28,6 +28,11 @@ public class ExtentManager {
 
             extent = new ExtentReports();
             extent.attachReporter(spark);
+            extent.setSystemInfo("Operating System", System.getProperty("os.name"));
+            extent.setSystemInfo("Java Version", System.getProperty("java.version"));
+            extent.setSystemInfo("User Name", System.getProperty("user.name"));
+            extent.setSystemInfo("Environment", "QA");
+            extent.setSystemInfo("Execution Engine", "Appium - UiAutomator2");
         }
         return extent;
     }

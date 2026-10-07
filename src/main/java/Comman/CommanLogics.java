@@ -33,7 +33,7 @@ public class CommanLogics {
 	        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 	    }
 	    
-	public void scrollToAndView(String text) {
+	public void scrollTo(String text) {
 	    WebElement targetElement;
 
 	    try {
