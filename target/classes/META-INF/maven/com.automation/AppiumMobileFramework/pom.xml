@@ -14,6 +14,13 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
+    
+    <!-- Dependency Versions -->
+    <appium.java.client.version>10.1.1</appium.java.client.version>
+    <selenium.version>4.50.0</selenium.version>
+    <testng.version>7.12.0</testng.version>
+    <extentreports.version>5.1.1</extentreports.version>
+    <json.version>20240303</json.version>
   </properties>
 
   <dependencies>
@@ -21,45 +28,36 @@
     <dependency>
         <groupId>io.appium</groupId>
         <artifactId>java-client</artifactId>
-        <version>9.2.2</version>
+        <version>${appium.java.client.version}</version>
     </dependency>
 
     <!-- Selenium Java -->
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-java</artifactId>
-        <version>4.21.0</version>
+        <version>${selenium.version}</version>
     </dependency>
-    
-    <!-- Explicit Selenium APIs to resolve ContextAware class loading -->
+
+    <!-- Extent Reports -->
     <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-api</artifactId>
-        <version>4.21.0</version>
+        <groupId>com.aventstack</groupId>
+        <artifactId>extentreports</artifactId>
+        <version>${extentreports.version}</version>
     </dependency>
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-remote-driver</artifactId>
-        <version>4.21.0</version>
-    </dependency>
-    <!--Extent report Jar-->
-<dependency>
-    <groupId>com.aventstack</groupId>
-    <artifactId>extentreports</artifactId>
-    <version>5.1.1</version>
-</dependency>
+
     <!-- TestNG Framework -->
     <dependency>
         <groupId>org.testng</groupId>
         <artifactId>testng</artifactId>
-        <version>7.10.2</version>
+        <version>${testng.version}</version>
     </dependency>
-    <!--Json Reader-->
+
+    <!-- JSON Reader -->
     <dependency>
-    <groupId>org.json</groupId>
-    <artifactId>json</artifactId>
-    <version>20240303</version>
-</dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>${json.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -81,10 +79,10 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.3.0</version>
           <configuration>
-                <suiteXmlFiles>
-                    <suiteXmlFile>testng.xml</suiteXmlFile>
-                </suiteXmlFiles>
-            </configuration>
+            <suiteXmlFiles>
+              <suiteXmlFile>testng.xml</suiteXmlFile>
+            </suiteXmlFiles>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
